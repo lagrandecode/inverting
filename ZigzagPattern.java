@@ -1,29 +1,23 @@
-import java.util.Scanner;
-
 public class ZigzagPattern {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        int rows = 5; // Number of rows
+        int cols = 13; // Number of columns
 
-        System.out.print("Enter the number of rows for the zigzag pattern: ");
-        int rows = scanner.nextInt();
-        System.out.print("Enter the number of columns (length of zigzag): ");
-        int cols = scanner.nextInt();
-
-        // Print zigzag pattern
+        // Loop through rows
         for (int i = 1; i <= rows; i++) {
             for (int j = 1; j <= cols; j++) {
-                if ((i + j) % rows == 1) { // Formula to print stars diagonally
+                // Condition for stars
+                if ((i == 1 || i == 5) && (j - 1) % 4 == 0) { // Row 1 and Row 5
+                    System.out.print("*");
+                } else if ((i == 2 || i == 4) && j % 2 == 0) { // Row 2 and Row 4
+                    System.out.print("*");
+                } else if (i == 3 && (j - 3) % 4 == 0) { // Row 3
                     System.out.print("*");
                 } else {
-                    System.out.print(" ");
+                    System.out.print(" "); // Print space otherwise
                 }
             }
-            System.out.println();
-            for(int j = 1; j<=i; j++){
-                System.out.print("#");
-            }
+            System.out.println(); // Move to the next row
         }
-
-        scanner.close();
     }
 }
