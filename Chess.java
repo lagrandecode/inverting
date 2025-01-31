@@ -1,35 +1,22 @@
-import java.awt.*;
-import javax.swing.*;
-
-public class Chess extends JPanel {
-    private int toggle = 0;
-
-    public Chess() {
-        Timer timer = new Timer(1000, e -> {
-            toggle = (toggle + 1) % 2; // Toggle between 0 and 1
-            repaint();
-        });
-        timer.start();
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        int size = 50; // Square size
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                boolean isBlack = ((i + j + toggle) % 2 == 0);
-                g.setColor(isBlack ? Color.BLACK : Color.WHITE);
-                g.fillRect(j * size, i * size, size, size);
-            }
-        }
-    }
+public class Chess {
+    public static final String RESET = "\u001B[0m";
+    public static final String WHITE = "\u001B[47m";
+    public static final String BLACK = "\u001B[40m";
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Animated ChessBoard");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
-        frame.add(new Chess());
-        frame.setVisible(true);
+        int n = 8;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if ((i == 1 && (j == 1 || j == 8)) || (i == 8 && (j == 1 || j == 8))) { 
+                    // Print rook inside the board (at corners)
+                    System.out.print(" ♜ ");
+                } else if ((i + j) % 2 == 0) {
+                    System.out.print(WHITE + "   " + RESET);
+                } else {
+                    System.out.print(BLACK + "   " + RESET);
+                }
+            }
+            System.out.println();
+        }
     }
 }
