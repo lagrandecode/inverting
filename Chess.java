@@ -29,10 +29,7 @@ public class Chess {
         return board;
     }
 
-    /**
-     * Prints the chessboard with alternating colors.
-     * @param board 2D array representing the chessboard.
-     */
+
     private static void printBoard(String[][] board) {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
