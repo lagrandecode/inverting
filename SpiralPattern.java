@@ -20,3 +20,4 @@ public class SpiralPattern {
     }
     
 }
+//PPLYINGH THE DOWN TRAINGLE
