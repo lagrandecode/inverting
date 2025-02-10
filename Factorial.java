@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class Factorial {
     
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int num = scan.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
         int counter = num;
         int factorial = 1;
 
@@ -14,6 +14,6 @@ public class Factorial {
             counter--;
         }
         System.out.println(" the factorial is: " + factorial);
-        scan.close();
+        scanner.close();
     }
 }
