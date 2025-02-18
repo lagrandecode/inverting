@@ -13,6 +13,6 @@ public class ArithmeticMean {
 
         double arithmeticMean = (number1+number2+number3)/3;
         System.out.print(arithmeticMean);
-
+        scan.close();
     }   
 }
